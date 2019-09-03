@@ -20,7 +20,7 @@ def save_to_bucket(audio):
     accountName = "all2sflminiproject"
     # For ecurity, need to create vault, register function (or app?) in active directory,
     #and retrieve key from vault
-    accountKey = "Sicx31/zdA77JaNIxDS4YVpKYOVu8mPxurm1RnAf04Y0rp0wIspWOv669ASvi1R9l2AmxQFY96jMM1dzUraPgA=="
+    accountKey = "xxx"
     containerName = "raw8audio"
     # blobName = "***"
     blob_file_name = save_name
