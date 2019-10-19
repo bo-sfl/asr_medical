@@ -1,0 +1,42 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "workspaces_asr_medical_name": {
+            "defaultValue": "asr_medical",
+            "type": "String"
+        },
+        "storageaccounts_asrmedical4047371746_externalid": {
+            "defaultValue": "/subscriptions/b0758f69-c127-4dbc-bad0-4a3db1f2b667/resourceGroups/asr_medical_project/providers/microsoft.storage/storageaccounts/asrmedical4047371746",
+            "type": "String"
+        },
+        "vaults_asrmedical9562631962_externalid": {
+            "defaultValue": "/subscriptions/b0758f69-c127-4dbc-bad0-4a3db1f2b667/resourceGroups/asr_medical_project/providers/microsoft.keyvault/vaults/asrmedical9562631962",
+            "type": "String"
+        },
+        "components_asrmedical1896227437_externalid": {
+            "defaultValue": "/subscriptions/b0758f69-c127-4dbc-bad0-4a3db1f2b667/resourceGroups/asr_medical_project/providers/microsoft.insights/components/asrmedical1896227437",
+            "type": "String"
+        }
+    },
+    "variables": {},
+    "resources": [
+        {
+            "type": "Microsoft.MachineLearningServices/workspaces",
+            "apiVersion": "2018-11-19",
+            "name": "[parameters('workspaces_asr_medical_name')]",
+            "location": "eastus",
+            "identity": {
+                "principalId": "f389344d-d89a-43b0-b5b3-1e3233882517",
+                "tenantId": "a6446821-ea80-4883-ad47-e5dd9631105e",
+                "type": "SystemAssigned"
+            },
+            "properties": {
+                "storageAccount": "[parameters('storageaccounts_asrmedical4047371746_externalid')]",
+                "keyVault": "[parameters('vaults_asrmedical9562631962_externalid')]",
+                "applicationInsights": "[parameters('components_asrmedical1896227437_externalid')]",
+                "discoveryUrl": "https://eastus.experiments.azureml.net/discovery"
+            }
+        }
+    ]
+}
